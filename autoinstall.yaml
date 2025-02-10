@@ -2,19 +2,19 @@
 autoinstall:
     version: 1
     identity:
-        realname: 'Dionatan Simioni'
-        hostname: ubuntu-desktop
-        username: diolinux
-        password: '$y$j9T$uhkxlm8nUQaNu.6rl4k2d.$DIldpYy96OHg8lFjfXfc671BZcGWkPOmaDONGAhGSg3'
+        realname: 'supervisor'
+        hostname: ubuntu-vbox
+        username: supervisor
+        password: '$y$j9T$vX953AaCn1sMRRHJ8cc3G.$Xyz/DG/nJmF4S3b89TuTySi25ak3GDh8e4GMgQvwnF7'
     locale: pt_BR.utf8
     keyboard:
         layout: br
     timezone: "America/Sao_Paulo"   
     packages:
         - libreoffice
-        - gimp
         - git
         - wget
+        - net-tools
     snaps:
         - name: spotify
           channel: stable
