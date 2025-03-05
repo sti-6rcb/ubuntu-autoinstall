@@ -17,6 +17,7 @@ autoinstall:
         - net-tools
         - openssh-server
         - curl
+        - q4wine
     snaps:
         - name: spotify
           channel: stable
