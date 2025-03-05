@@ -3,7 +3,7 @@ autoinstall:
     version: 1
     identity:
         realname: 'supervisor'
-        hostname: ubuntu-vbox
+        hostname: autoinstall
         username: supervisor
         password: '$y$j9T$vX953AaCn1sMRRHJ8cc3G.$Xyz/DG/nJmF4S3b89TuTySi25ak3GDh8e4GMgQvwnF7'
     locale: pt_BR.utf8
@@ -15,6 +15,8 @@ autoinstall:
         - git
         - wget
         - net-tools
+        - openssh-server
+        - curl
     snaps:
         - name: spotify
           channel: stable
@@ -24,5 +26,13 @@ autoinstall:
     drivers:
         install: true
     updates: all
+    late-commands:
+        - curtin in-target -- echo "Updating packages" >> /var/log/install.log
+        - curtin in-target -- apt-get -y update >> /var/log/install.log 2>&1
+        - curtin in-target -- echo "Upgrading packages" >> /var/log/install.log
+        - curtin in-target -- apt-get -y upgrade >> /var/log/install.log 2>&1
+        - curtin in-target -- echo "Downloading Zabbix install script" >> /var/log/install.log
+        - curtin in-target -- wget https://raw.githubusercontent.com/joao-pedro-rdo/sti/refs/heads/main/zabbix-install.sh >> /var/log/install.log 2>&1
+
     shutdown: reboot
 
